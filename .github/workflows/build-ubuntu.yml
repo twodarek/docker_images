@@ -80,7 +80,7 @@ jobs:
           sudo apt-get install -y passt
 
       - name: Force SLUG to lowercase
-        uses: actions/github-script@v6
+        uses: actions/github-script@v9
         with:
           github-token: n/a
           script: |
@@ -307,7 +307,7 @@ jobs:
           rm -r "$AGENT_TOOLSDIRECTORY" || :
         shell: bash
       - name: Force SLUG to lowercase
-        uses: actions/github-script@v6
+        uses: actions/github-script@v9
         with:
           github-token: n/a
           script: |

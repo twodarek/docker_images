@@ -55,7 +55,7 @@ jobs:
       - name: Disable apparmor restrictions
         run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '>=1.21.0'
       - name: Setup buildah
@@ -208,7 +208,7 @@ jobs:
               -tags $tags
 
       - if: ${{ !env.SKIP_TEST }}
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v6
         with:
           go-version: '^1.16'
 
@@ -275,7 +275,7 @@ jobs:
       - name: Disable apparmor restrictions
         run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '>=1.21.0'
       - name: Setup buildah

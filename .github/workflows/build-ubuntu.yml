@@ -1,8 +1,8 @@
 name: Build ubuntu images
 
 on:
-  schedule:
-    - cron: 0 12 */7 * *
+#  schedule:
+#    - cron: 0 12 * * 0
   push:
     paths:
       - '.github/workflows/build-ubuntu.yml'
@@ -48,7 +48,7 @@ jobs:
         PLATFORMS:
           - linux/amd64,linux/arm64,linux/arm/v7
         TAG:
-          - 26.04
+#          - 26.04
           - 24.04
     steps:
       - name: Disable apparmor restrictions
@@ -238,7 +238,7 @@ jobs:
       max-parallel: 8
       matrix:
         TAG:
-          - 26.04
+#          - 26.04
           - 24.04
         TYPE:
           - go
@@ -246,9 +246,9 @@ jobs:
           # - pwsh
           # - rust
           # - dotnet
-          - java-tools
-          - gh
-          - custom
+#          - java-tools
+#          - gh
+#          - custom
         include:
           - PLATFORMS: linux/amd64,linux/arm64
             TYPE: go
@@ -260,12 +260,12 @@ jobs:
           #   TYPE: rust
           # - PLATFORMS: linux/amd64,linux/arm64
           #   TYPE: dotnet
-          - PLATFORMS: linux/amd64,linux/arm64
-            TYPE: java-tools
-          - PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7
-            TYPE: gh
-          - PLATFORMS: linux/amd64,linux/arm64
-            TYPE: custom
+#          - PLATFORMS: linux/amd64,linux/arm64
+#            TYPE: java-tools
+#          - PLATFORMS: linux/amd64,linux/arm64,linux/arm/v7
+#            TYPE: gh
+#          - PLATFORMS: linux/amd64,linux/arm64
+#            TYPE: custom
     steps:
       - name: Disable apparmor restrictions
         run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
